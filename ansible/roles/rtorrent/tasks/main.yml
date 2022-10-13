@@ -1,2 +1,5 @@
 ---
 
+- name: "Manage the state of the rtorrent user"
+  include: manage-users.yml
+

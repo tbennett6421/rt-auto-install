@@ -1,0 +1,8 @@
+## Do not set shell to nologin when using the tmux service
+- name: "Add the rtorrent user: {{rtorrent_user}}"
+  user:
+    name: "{{rtorrent['user']}}"
+    comment: "{{rtorrent['gecos']}}"
+    shell: "{{rtorrent['shell']}}"
+    home: "{{rtorrent['home']}}"
+    create_home: yes

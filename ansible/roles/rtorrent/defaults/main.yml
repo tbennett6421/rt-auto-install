@@ -1,2 +1,6 @@
 ---
-rtorrent_user: rtorrent
+rtorrent:
+    user: "rtorrent"
+    gecos: "Service account for running rtorrent"
+    home: "/home/rtorrent"
+    shell: "/bin/bash"
