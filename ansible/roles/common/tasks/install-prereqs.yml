@@ -19,5 +19,6 @@
      - tmux
      - unrar
      - unzip
+     - wget
      - zip
   become: yes
