@@ -6,3 +6,6 @@
 - name: "Manage the directories for the rtorrent application"
   include: manage-directories.yml
 
+- name: "Install libtorrentX"
+  include: install-libtorrent.yml
+

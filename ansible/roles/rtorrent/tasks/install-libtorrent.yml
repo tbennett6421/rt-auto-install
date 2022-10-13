@@ -1,0 +1,30 @@
+---
+
+# Add debian?
+- name: Install libtorrent21
+  package:
+    name: libtorrent21
+    state: present
+  become: yes
+  when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.04") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.10") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "21.04") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "21.10") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "22.04")
+
+- name: Install libtorrent20
+  package:
+    name: libtorrent20
+    state: present
+  become: yes
+  when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "18.10") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "19.04") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "19.10")
+
+- name: Install libtorrent19
+  package:
+    name: libtorrent19
+    state: present
+  become: yes
+  when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "18.04")
+
