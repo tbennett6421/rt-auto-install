@@ -6,3 +6,5 @@
     group: "{{rtorrent['group']}}"
     mode: '0644'
   become: yes
+  notify:
+    - restart rtorrent
