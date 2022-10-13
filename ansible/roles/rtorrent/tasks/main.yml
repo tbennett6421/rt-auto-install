@@ -3,3 +3,6 @@
 - name: "Manage the state of the rtorrent user"
   include: manage-users.yml
 
+- name: "Manage the directories for the rtorrent application"
+  include: manage-directories.yml
+

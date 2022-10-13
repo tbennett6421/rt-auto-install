@@ -1,0 +1,26 @@
+---
+
+- name: "Create the session directory: {{rtorrent['home']}}/.rtorrent-session"
+  file:
+    path: "{{rtorrent['home']}}/.rtorrent-session"
+    owner: "{{rtorrent['user']}}"
+    group: "{{rtorrent['group']}}"
+    state: directory
+  become: yes
+
+- name: "Create the download directory: {{rtorrent['home']}}/Downloads"
+  file:
+    path: "{{rtorrent['home']}}/Downloads"
+    owner: "{{rtorrent['user']}}"
+    group: "{{rtorrent['group']}}"
+    state: directory
+  become: yes
+
+- name: "Create the watch directory: {{rtorrent['home']}}/watch"
+  file:
+    path: "{{rtorrent['home']}}/watch"
+    owner: "{{rtorrent['user']}}"
+    group: "{{rtorrent['group']}}"
+    state: directory
+  become: yes
+
