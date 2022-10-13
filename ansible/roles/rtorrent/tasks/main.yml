@@ -9,3 +9,6 @@
 - name: "Install libtorrentX"
   include: install-libtorrent.yml
 
+- name: "Install rtorrent"
+  include: install-rtorrent.yml
+

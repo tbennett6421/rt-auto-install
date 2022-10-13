@@ -1,0 +1,24 @@
+---
+
+- name: Install rtorrent
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+     - libxmlrpc-core-c3
+     - rtorrent
+  become: yes
+
+## Can we just enable universe??
+
+#- name: Download mod-scgi
+#  get_url:
+#    url: http://mirrors.kernel.org/ubuntu/pool/universe/s/scgi/libapache2-mod-scgi_1.13-1.1build1_amd64.deb
+#    dest: /tmp/libapache2-mod-scgi_1.13-1.1build1_amd64.deb
+#  when: ansible_distribution_version == '20.04'
+
+#- name: Install mod-scgi
+#  apt:
+#    deb: /tmp/libapache2-mod-scgi_1.13-1.1build1_amd64.deb
+#  when: ansible_distribution_version == '20.04'
+#  become: yes
