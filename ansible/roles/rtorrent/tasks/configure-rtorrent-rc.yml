@@ -1,0 +1,8 @@
+- name: Render .rtorrent.rc
+  copy:
+    src: "templates/home/rtorrent/.rtorrent.rc.j2"
+    dest: "{{rtorrent['home']}}/.rtorrent.rc"
+    owner: "{{rtorrent['user']}}"
+    group: "{{rtorrent['group']}}"
+    mode: '0644'
+  become: yes

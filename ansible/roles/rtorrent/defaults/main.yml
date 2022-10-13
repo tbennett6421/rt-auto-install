@@ -5,3 +5,6 @@ rtorrent:
     gecos: "Service account for running rtorrent"
     home: "/home/rtorrent"
     shell: "/bin/bash"
+rtorrentrc:
+    portbegin: 6790
+    portend: 6999
