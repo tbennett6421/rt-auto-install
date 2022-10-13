@@ -1,0 +1,5 @@
+# -vv very verbose
+# --step: step through the play
+# -K: prompt for become password
+# -k: prompt for ssh password
+ansible-playbook site.yml -i inventory.yml -K -vv --step

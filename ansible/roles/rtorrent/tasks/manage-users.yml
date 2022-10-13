@@ -1,11 +1,12 @@
 ---
-- name: "Add the rtorrent group: {{rtorrent['group']}}"
+- name: "Add the rtorrent group"
   group:
     name: "{{rtorrent['group']}}"
     state: present
+  become: yes
 
 ## Do not set shell to nologin when using the tmux service
-- name: "Add the rtorrent user: {{rtorrent['user']}}"
+- name: "Add the rtorrent user"
   user:
     name: "{{rtorrent['user']}}"
     groups: "{{rtorrent['group']}}"
@@ -14,3 +15,4 @@
     home: "{{rtorrent['home']}}"
     create_home: yes
     append: yes
+  become: yes

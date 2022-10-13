@@ -15,7 +15,7 @@
      - ffmpeg
      - git
      - libapache2-mod-php
-     - libapache2-mod-scgi
+     #- libapache2-mod-scgi
      - mc
      - mediainfo
      - openssl
