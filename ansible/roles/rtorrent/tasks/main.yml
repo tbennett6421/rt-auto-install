@@ -12,3 +12,9 @@
 - name: "Install rtorrent"
   include: install-rtorrent.yml
 
+- name: "Configure rtorrent.rc"
+  include: configure-rtorrent-rc.yml
+
+- name: "Configure service"
+  include: configure-systemd-unit.yml
+

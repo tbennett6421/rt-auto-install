@@ -1,0 +1,12 @@
+- name: Render systemd unit
+  template:
+    src: templates/etc/systemd/system/rtorrent.service.j2
+    dest: /etc/systemd/system/rtorrent.service
+  become: true
+  notify: restart rtorrent
+
+- name: Make sure a service unit is running
+  systemd:
+    name: rtorrent
+    state: started
+  become: yes

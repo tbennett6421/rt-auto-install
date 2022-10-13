@@ -1,0 +1,16 @@
+#jinja2:variable_start_string:'<%', variable_end_string:'%>', trim_blocks: False
+[Unit]
+Description=rtorrent (in tmux)
+
+[Service]
+Type=forking
+RemainAfterExit=yes
+User=<% rtorrent['user'] %>
+ExecStart=/usr/bin/tmux -2 new-session -d -s <% rtorrent['user'] %> <% rtorrent['user'] %>
+ExecStop=/usr/bin/tmux send-keys -t <% rtorrent['user'] %>:<% rtorrent['user'] %> C-q
+RemainAfterExit=no
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

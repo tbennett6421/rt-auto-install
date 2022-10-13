@@ -1,5 +1,5 @@
 - name: Render .rtorrent.rc
-  copy:
+  template:
     src: "templates/home/rtorrent/.rtorrent.rc.j2"
     dest: "{{rtorrent['home']}}/.rtorrent.rc"
     owner: "{{rtorrent['user']}}"

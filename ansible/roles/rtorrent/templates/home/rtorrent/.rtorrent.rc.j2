@@ -47,8 +47,8 @@ schedule = low_diskspace,5,60,close_low_diskspace=100M
 #bind = rakshasa.no
 
 # Port range to use for listening.
-port_range = 6790-6999
-<% rtorrentrc['portbegin']-rtorrentrc['portend'] %>
+#port_range = 6790-6999
+port_range = <% rtorrentrc['portbegin'] %>-<% rtorrentrc['portend'] %>
 
 # Start opening ports at a random position within the port range.
 #port_random = no
