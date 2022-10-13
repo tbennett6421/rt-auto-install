@@ -3,22 +3,25 @@
     name: "{{ item }}"
     state: present
   with_items:
+     - apache2
      - apache2-utils
      - curl
      - ffmpeg
      - git
-     - openssl
+     - libapache2-mod-php
+     - libapache2-mod-scgi
      - mc
      - mediainfo
-     - libapache2-mod-php
+     - openssl
      - php
      - php-cli
      - php-curl
      - rar
      - sox
      - tmux
-     - unrar
+     - unrar-free
      - unzip
      - wget
      - zip
   become: yes
+
