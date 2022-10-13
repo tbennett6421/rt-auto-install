@@ -1,5 +1,5 @@
 ---
 # Apply common configuration to all hosts
-- hosts: all
+- hosts: test
   roles:
   - common
