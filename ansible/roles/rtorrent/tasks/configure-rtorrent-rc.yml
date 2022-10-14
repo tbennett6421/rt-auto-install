@@ -1,3 +1,5 @@
+---
+
 - name: Render .rtorrent.rc
   template:
     src: "templates/home/rtorrent/.rtorrent.rc.j2"
