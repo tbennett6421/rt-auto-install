@@ -1,0 +1,13 @@
+- name: Install apache2
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+     - apache2
+  become: yes
+
+- name: Make sure a service unit is running
+  systemd:
+    name: apache2
+    state: started
+  become: yes

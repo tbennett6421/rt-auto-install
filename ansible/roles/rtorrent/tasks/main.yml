@@ -1,5 +1,8 @@
 ---
 
+- name: "set facts for use in other roles"
+  include: set-facts.yml
+
 - name: "Manage the state of the rtorrent user"
   include: manage-users.yml
 
