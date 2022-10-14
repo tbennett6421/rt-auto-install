@@ -1,18 +1,17 @@
 ---
 - name: "Add the rtorrent group"
   group:
-    name: "{{rtorrent['group']}}"
+    name: "{{ rtorrent_group }}"
     state: present
   become: yes
 
-## Do not set shell to nologin when using the tmux service
 - name: "Add the rtorrent user"
   user:
-    name: "{{rtorrent['user']}}"
-    groups: "{{rtorrent['group']}}"
-    comment: "{{rtorrent['gecos']}}"
-    shell: "{{rtorrent['shell']}}"
-    home: "{{rtorrent['home']}}"
+    name: "{{ rtorrent_user }}"
+    groups: "{{ rtorrent_group }}"
+    comment: "{{ rtorrent_gecos }}"
+    shell: "{{ rtorrent_shell }}"
+    home: "{{ rtorrent_home }}"
     create_home: yes
     append: yes
   check_mode: yes
@@ -29,12 +28,12 @@
 ## Do not set shell to nologin when using the tmux service
 - name: "Add the rtorrent user"
   user:
-    name: "{{rtorrent['user']}}"
-    groups: "{{rtorrent['group']}}"
-    comment: "{{rtorrent['gecos']}}"
-    shell: "{{rtorrent['shell']}}"
-    home: "{{rtorrent['home']}}"
+    name: "{{ rtorrent_user }}"
+    groups: "{{ rtorrent_group }}"
+    comment: "{{ rtorrent_gecos }}"
+    shell: "{{ rtorrent_shell }}"
+    home: "{{ rtorrent_home }}"
     create_home: yes
     append: yes
-  when: changes_needed.changed
   become: yes
+  when: changes_needed.changed

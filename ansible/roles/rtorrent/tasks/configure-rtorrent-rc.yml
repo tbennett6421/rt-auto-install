@@ -1,10 +1,9 @@
 - name: Render .rtorrent.rc
   template:
     src: "templates/home/rtorrent/.rtorrent.rc.j2"
-    dest: "{{rtorrent['home']}}/.rtorrent.rc"
-    owner: "{{rtorrent['user']}}"
-    group: "{{rtorrent['group']}}"
+    dest: "{{ rtorrent_home }}/.rtorrent.rc"
+    owner: "{{ rtorrent_user }}"
+    group: "{{ rtorrent_group }}"
     mode: '0644'
   become: yes
-  notify:
-    - restart rtorrent
+  notify: restart rtorrent

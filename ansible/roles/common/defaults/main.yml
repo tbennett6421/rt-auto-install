@@ -12,6 +12,7 @@ users:
         group: "rtorrent"
         gecos: "Service account for running rtorrent"
         home: "/home/rtorrent"
+        ## Do not set shell to nologin when using the tmux service
         shell: "/bin/bash"
 config:
     rtorrentrc:
