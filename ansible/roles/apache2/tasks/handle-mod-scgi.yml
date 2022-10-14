@@ -1,0 +1,22 @@
+---
+
+- name: "Flag where supported"
+  set_fact:
+    b_mod_scgi: true
+  when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.04") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.10") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "21.04") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "21.10") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "22.04")
+
+- name: Download mod-scgi
+  get_url:
+    url: http://mirrors.kernel.org/ubuntu/pool/universe/s/scgi/libapache2-mod-scgi_1.13-1.1build1_amd64.deb
+    dest: /tmp/libapache2-mod-scgi_1.13-1.1build1_amd64.deb
+  when: b_mod_scgi == true
+
+- name: Install mod-scgi
+  apt:
+    deb: /tmp/libapache2-mod-scgi_1.13-1.1build1_amd64.deb
+  when: b_mod_scgi == true
+  become: yes

@@ -1,2 +1,8 @@
 ---
 
+- name: "Copy application to webroot"
+  include: copy-rutorrent-to-webroot.yml
+
+- name: "Configure apache2"
+  include: configure-apache2.yml
+
