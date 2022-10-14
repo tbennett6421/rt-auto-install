@@ -17,3 +17,7 @@
     apache_gecos:  "{{ users.apache.gecos }}"
     apache_home:  "{{ users.apache.home }}"
     apache_shell:  "{{ users.apache.shell }}"
+
+- name: "Set facts for role rutorrent"
+  set_fact:
+    rutorrent_install_dir: "{{ config.rutorrent.install_dir }}"
