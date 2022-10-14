@@ -1,0 +1,22 @@
+---
+# Variables for use in all roles
+users:
+    apache:
+        user: "www-data"
+        group: "www-data"
+        gecos: "Service account for running apache"
+        home: "/var/www"
+        shell: "/usr/sbin/nologin"
+    rtorrent:
+        user: "rtorrent"
+        group: "rtorrent"
+        gecos: "Service account for running rtorrent"
+        home: "/home/rtorrent"
+        shell: "/bin/bash"
+config:
+    rtorrentrc:
+        portbegin: 6790
+        portend: 6999
+    rutorrent:
+        install_dir: "/var/www/rutorrent"
+

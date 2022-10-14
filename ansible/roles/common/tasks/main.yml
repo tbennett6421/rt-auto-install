@@ -1,4 +1,7 @@
 ---
+- name: "Set Facts"
+  include: set-facts.yml
+
 - name: "Install prerequistes"
   include: install-prereqs.yml
 
