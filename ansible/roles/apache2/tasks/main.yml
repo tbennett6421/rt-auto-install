@@ -1,4 +1,10 @@
 ---
 
+- name: "set facts for use in other roles"
+  include: set-facts.yml
+
 - name: "Manage the state of the apache user"
   include: manage-users.yml
+
+- name: "Try to download/install mod-scgi"
+  include: handle-mod-scgi.yml
