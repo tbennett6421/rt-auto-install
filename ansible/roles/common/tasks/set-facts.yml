@@ -7,6 +7,8 @@
     rtorrent_gecos:  "{{ users.rtorrent.gecos }}"
     rtorrent_home:  "{{ users.rtorrent.home }}"
     rtorrent_shell:  "{{ users.rtorrent.shell }}"
+    rtorrentrc_portbegin: "{{ config.rtorrentrc.portbegin }}"
+    rtorrentrc_portend: "{{ config.rtorrentrc.portend }}"
 
 - name: "Set facts for role apache"
   set_fact:

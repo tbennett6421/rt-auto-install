@@ -21,13 +21,13 @@
 
 # Default directory to save the downloaded torrents.
 #directory = ~/Downloads
-directory = <% rtorrent['home'] %>/Downloads
+directory = <% rtorrent_home %>/Downloads
 
 # Default session directory. Make sure you don't run multiple instance
 # of rtorrent using the same session directory. Perhaps using a
 # relative path?
 #session = ~/.rtorrent-session
-session = <% rtorrent['home'] %>/.rtorrent-session
+session = <% rtorrent_home %>/.rtorrent-session
 
 # Watch a directory for new torrents, and stop those that have been
 # deleted.
@@ -48,7 +48,7 @@ schedule = low_diskspace,5,60,close_low_diskspace=100M
 
 # Port range to use for listening.
 #port_range = 6790-6999
-port_range = <% rtorrentrc['portbegin'] %>-<% rtorrentrc['portend'] %>
+# port_range = <% rtorrentrc_portbegin %>-<% rtorrentrc_portend %>
 
 # Start opening ports at a random position within the port range.
 #port_random = no
@@ -107,7 +107,6 @@ encryption = allow_incoming,enable_retry,try_outgoing
 #hash_max_tries = 10
 
 scgi_port = 127.0.0.1:5000
-
 
 ####### Heavy I/O seedbox configuration
 ####### Uncomment lines below if you have 1Gbit+ Internet link
