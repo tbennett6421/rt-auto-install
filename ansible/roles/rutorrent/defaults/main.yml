@@ -1,3 +1,5 @@
 ---
 rutorrent:
     install_dir: "/var/www/rutorrent"
+    server_name: rutorrent.example.com
+    server_admin: webmaster@localhost
