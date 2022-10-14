@@ -15,4 +15,26 @@
     home: "{{rtorrent['home']}}"
     create_home: yes
     append: yes
+  check_mode: yes
+  register: changes_needed
+
+- name: Stop service rtorrent, if changes needed
+  service:
+    name: rorrent
+    state: stopped
+  become: yes
+  when: changes_needed.changed
+  notify: restart rtorrent
+
+## Do not set shell to nologin when using the tmux service
+- name: "Add the rtorrent user"
+  user:
+    name: "{{rtorrent['user']}}"
+    groups: "{{rtorrent['group']}}"
+    comment: "{{rtorrent['gecos']}}"
+    shell: "{{rtorrent['shell']}}"
+    home: "{{rtorrent['home']}}"
+    create_home: yes
+    append: yes
+  when: changes_needed.changed
   become: yes
