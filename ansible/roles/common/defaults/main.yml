@@ -1,4 +1,5 @@
 ---
+
 # Variables for use in all roles
 users:
     apache:

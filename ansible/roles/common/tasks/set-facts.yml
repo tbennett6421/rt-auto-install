@@ -1,4 +1,5 @@
 ---
+
 - name: "Set facts for role rtorrent"
   set_fact:
     rtorrent_user:  "{{ users.rtorrent.user }}"

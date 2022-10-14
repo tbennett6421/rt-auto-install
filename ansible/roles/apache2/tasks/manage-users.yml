@@ -1,4 +1,5 @@
 ---
+
 - name: "Ensure apache2 group exists"
   group:
     name: "{{ apache_group }}"
