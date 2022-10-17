@@ -1,7 +1,0 @@
----
-apache:
-    user: "www-data"
-    group: "www-data"
-    gecos: "Service account for running apache"
-    home: "/var/www"
-    shell: "/usr/sbin/nologin"

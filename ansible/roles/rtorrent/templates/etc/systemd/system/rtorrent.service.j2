@@ -5,9 +5,9 @@ Description=rtorrent (in tmux)
 [Service]
 Type=forking
 RemainAfterExit=yes
-User=<% rtorrent['user'] %>
-ExecStart=/usr/bin/tmux -2 new-session -d -s <% rtorrent['user'] %> <% rtorrent['user'] %>
-ExecStop=/usr/bin/tmux send-keys -t <% rtorrent['user'] %>:<% rtorrent['user'] %> C-q
+User=<% rtorrent_user %>
+ExecStart=/usr/bin/tmux -2 new-session -d -s <% rtorrent_user %> <% rtorrent_user %>
+ExecStop=/usr/bin/tmux send-keys -t <% rtorrent_user %>:<% rtorrent_user %> C-q
 RemainAfterExit=no
 Restart=on-failure
 RestartSec=5s

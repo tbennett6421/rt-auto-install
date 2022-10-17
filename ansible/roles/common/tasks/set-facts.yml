@@ -1,0 +1,23 @@
+---
+
+- name: "Set facts for role rtorrent"
+  set_fact:
+    rtorrent_user:  "{{ users.rtorrent.user }}"
+    rtorrent_group: "{{ users.rtorrent.group }}"
+    rtorrent_gecos:  "{{ users.rtorrent.gecos }}"
+    rtorrent_home:  "{{ users.rtorrent.home }}"
+    rtorrent_shell:  "{{ users.rtorrent.shell }}"
+    rtorrentrc_portbegin: "{{ config.rtorrentrc.portbegin }}"
+    rtorrentrc_portend: "{{ config.rtorrentrc.portend }}"
+
+- name: "Set facts for role apache"
+  set_fact:
+    apache_user:  "{{ users.apache.user }}"
+    apache_group: "{{ users.apache.group }}"
+    apache_gecos:  "{{ users.apache.gecos }}"
+    apache_home:  "{{ users.apache.home }}"
+    apache_shell:  "{{ users.apache.shell }}"
+
+- name: "Set facts for role rutorrent"
+  set_fact:
+    rutorrent_install_dir: "{{ config.rutorrent.install_dir }}"

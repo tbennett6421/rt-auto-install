@@ -1,19 +1,20 @@
 ---
+
 - name: "Ensure apache2 group exists"
   group:
-    name: "{{apache['group']}}"
+    name: "{{ apache_group }}"
     state: present
   become: yes
 
 - name: Check if changes need to be made
   user:
-    name: "{{apache['user']}}"
-    groups: 
-      - "{{apache['group']}}"
-      - "{{rtorrent_group}}" # applied from facts
-    comment: "{{apache['gecos']}}"
-    shell: "{{apache['shell']}}"
-    home: "{{apache['home']}}"
+    name: "{{ apache_user }}"
+    groups:
+      - "{{ apache_group }}"
+      - "{{ rtorrent_group }}"
+    comment: "{{ apache_gecos }}"
+    shell: "{{ apache_shell }}"
+    home: "{{ apache_home }}"
     create_home: yes
     append: yes
   check_mode: yes
@@ -30,14 +31,14 @@
 ## Ensure www-data has access to torrent files in order to download from rutorrent
 - name: "Apply desired state to user"
   user:
-    name: "{{apache['user']}}"
-    groups: 
-      - "{{apache['group']}}"
-      - "{{rtorrent_group}}" # applied from facts
-    comment: "{{apache['gecos']}}"
-    shell: "{{apache['shell']}}"
-    home: "{{apache['home']}}"
+    name: "{{ apache_user }}"
+    groups:
+      - "{{ apache_group }}"
+      - "{{ rtorrent_group }}"
+    comment: "{{ apache_gecos }}"
+    shell: "{{ apache_shell }}"
+    home: "{{ apache_home }}"
     create_home: yes
     append: yes
-  when: changes_needed.changed
   become: yes
+  when: changes_needed.changed

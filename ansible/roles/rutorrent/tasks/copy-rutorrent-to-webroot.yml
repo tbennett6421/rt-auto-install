@@ -1,13 +1,15 @@
+---
+
 - name: Clone rtorrent
   git:
     repo: "https://github.com/Novik/ruTorrent.git"
-    dest: "{{rutorrent['install_dir']}}"
+    dest: "{{ rutorrent_install_dir }}"
   become: yes
 
 - name: Manage permissions
   file:
-    path: "{{rutorrent['install_dir']}}"
-    owner: "{{apache_user}}"
-    group: "{{apache_group}}"
+    path: "{{ rutorrent_install_dir }}"
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
     recurse: yes
   become: yes
