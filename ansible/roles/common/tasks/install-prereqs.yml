@@ -10,18 +10,18 @@
 # This prevents us from dropping to an unpriviledged user
 # https://github.com/georchestra/ansible/issues/55
 - name: Install required packages
-  apt:
+  package:
     name: "{{ item }}"
     state: present
   with_items:
     - acl
     - python3-pip
+  become: yes
   when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.04") or
         (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.10") or
         (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "21.04") or
         (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "21.10") or
         (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "22.04")
-
 
 - name: Install r(u)torrent preqs
   package:
