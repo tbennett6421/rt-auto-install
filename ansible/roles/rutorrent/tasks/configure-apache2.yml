@@ -20,8 +20,8 @@
   notify: restart apache2
 
 ## Setup
-- name: Copy sites config
-  render:
+- name: Render sites config
+  template:
     src: "templates/etc/apache2/sites-available/{{item}}.j2"
     dest: "/etc/apache2/sites-available/{{item}}"
     owner: "{{ apache_user }}"
@@ -32,8 +32,8 @@
   become: yes
   notify: restart apache2
 
-- name: Copy sites config
-  render:
+- name: Render htpasswd
+  template:
     src: "templates/etc/apache2/{{item}}.j2"
     dest: "/etc/apache2/{{item}}"
     owner: "root"
