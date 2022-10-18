@@ -17,7 +17,14 @@
     apache_gecos:  "{{ users.apache.gecos }}"
     apache_home:  "{{ users.apache.home }}"
     apache_shell:  "{{ users.apache.shell }}"
+    apache_server_name: "{{ config.apache.server_name }}"
 
 - name: "Set facts for role rutorrent"
   set_fact:
     rutorrent_install_dir: "{{ config.rutorrent.install_dir }}"
+    rutorrent_server_name: "{{ config.rutorrent.server_name }}"
+    rutorrent_server_admin: "{{ config.rutorrent.server_admin }}"
+    htpasswd_username: "{{ config.htpasswd.username }}"
+    htpasswd_crypt: "{{ config.htpasswd.crypt }}"
+    pki_private_key: "{{ pki.private_key }}"
+    pki_public_cert: "{{ pki.public_cert }}"
