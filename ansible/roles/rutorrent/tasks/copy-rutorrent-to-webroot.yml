@@ -1,4 +1,13 @@
 ---
+
+- name: Create directory if not exist
+  file:
+    path: "{{ rutorrent_install_dir }}"
+    owner: "{{ apache_user }}"
+    group: "{{ apache_group }}"
+    recurse: yes
+  become: yes
+
 # requires: acl
 - name: Clone rtorrent
   git:
