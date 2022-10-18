@@ -1,0 +1,46 @@
+#jinja2:variable_start_string:'<%', variable_end_string:'%>', trim_blocks: False
+<VirtualHost *:80>
+    ServerName <% rutorrent['server_name'] %>
+    ServerAdmin <% rutorrent['server_admin'] %>
+    DocumentRoot <% rutorrent['install_dir'] %>
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    Redirect / https://<% rutorrent['server_name'] %>/
+
+    CustomLog /var/log/apache2/rutorrent.log vhost_combined
+    ErrorLog /var/log/apache2/rutorrent_error.log
+    SCGIMount /rutorrent/RPC2 127.0.0.1:5000
+
+    <Directory "<% rutorrent['install_dir']%>">
+        AuthName "Tits or GTFO"
+        AuthType Basic
+        Require valid-user
+        AuthName "Tits or GTFO"
+        AuthUserFile <%rutorrent['install_dir']%>/.htpasswd
+    </Directory>
+</VirtualHost>
+
+<IfModule mod_ssl.c>
+<VirtualHost *:443>
+  DocumentRoot <% rutorrent['install_dir'] %>
+  ServerName <% rutorrent['server_name'] %>
+
+  LogLevel info ssl:warn
+  ErrorLog /var/log/apache2/ssl_error.log
+  CustomLog /var/log/apache2/ssl_access.log common
+
+  <Directory "<% rutorrent['install_dir']%>">
+      AuthName "Tits or GTFO"
+      AuthType Basic
+      Require valid-user
+      AuthUserFile <%rutorrent['install_dir']%>/.htpasswd
+  </Directory>
+
+SSLEngine on
+SSLCertificateFile <% pki['public_key'] %>
+SSLCertificateKeyFile <% pki['private_key'] %>
+</VirtualHost>
+</IfModule>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
