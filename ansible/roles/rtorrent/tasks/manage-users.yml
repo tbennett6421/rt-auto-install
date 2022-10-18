@@ -20,7 +20,7 @@
 
 - name: Stop service rtorrent, if changes needed
   service:
-    name: rorrent
+    name: rtorrent
     state: stopped
   become: yes
   when: changes_needed.changed
