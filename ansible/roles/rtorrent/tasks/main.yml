@@ -1,5 +1,8 @@
 ---
 
+- name: "Configure service"
+  include: configure-systemd-unit.yml
+
 - name: "Manage the state of the rtorrent user"
   include: manage-users.yml
 
@@ -14,7 +17,3 @@
 
 - name: "Configure rtorrent.rc"
   include: configure-rtorrent-rc.yml
-
-- name: "Configure service"
-  include: configure-systemd-unit.yml
-

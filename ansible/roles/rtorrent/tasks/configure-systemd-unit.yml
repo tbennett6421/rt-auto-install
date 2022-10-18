@@ -9,8 +9,10 @@
   become: true
   notify: restart rtorrent
 
-- name: Make sure a service unit is running
+- name: Make sure a service unit is stopped
   systemd:
     name: rtorrent
-    state: started
+    state: stopped
+    enabled: yes
+    daemon_reload: yes
   become: yes
