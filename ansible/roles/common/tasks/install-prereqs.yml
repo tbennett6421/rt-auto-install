@@ -6,6 +6,23 @@
     cache_valid_time: 28800
   become: yes
 
+# (acl) which provides (setfacl) was removed in 20.04+
+# This prevents us from dropping to an unpriviledged user
+# https://github.com/georchestra/ansible/issues/55
+- name: Install required packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - acl
+    - python3-pip
+  when: (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.04") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "20.10") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "21.04") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "21.10") or
+        (ansible_facts['distribution'] == "Ubuntu" and ansible_facts['distribution_version'] == "22.04")
+
+
 - name: Install r(u)torrent preqs
   package:
     name: "{{ item }}"
@@ -17,7 +34,6 @@
      - ffmpeg
      - git
      - libapache2-mod-php
-     #- libapache2-mod-scgi
      - mc
      - mediainfo
      - openssl
