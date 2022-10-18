@@ -1,5 +1,9 @@
 ---
 
+- name: "Assert False"
+  set_fact:
+    b_mod_scgi: false
+
 - name: "Flag where supported"
   set_fact:
     b_mod_scgi: true
@@ -19,4 +23,11 @@
   apt:
     deb: /tmp/libapache2-mod-scgi_1.13-1.1build1_amd64.deb
   when: b_mod_scgi == true
+  become: yes
+
+- name: attempt to install mod-scgi on older OS's
+  package:
+    name: libapache2-mod-scgi
+    state: present
+  when: b_mod_scgi != true
   become: yes

@@ -1,10 +1,11 @@
 ---
-
+# requires: acl
 - name: Clone rtorrent
   git:
     repo: "https://github.com/Novik/ruTorrent.git"
     dest: "{{ rutorrent_install_dir }}"
   become: yes
+  become_user: "{{ apache_user }}"
 
 - name: Manage permissions
   file:
