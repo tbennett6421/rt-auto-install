@@ -21,14 +21,26 @@
 
 ## Setup
 - name: Copy sites config
-  copy:
-    src: "files/etc/apache2/sites-available/{{item}}"
+  render:
+    src: "templates/etc/apache2/sites-available/{{item}}.j2"
     dest: "/etc/apache2/sites-available/{{item}}"
     owner: "{{ apache_user }}"
     group: "{{ apache_group }}"
     mode: '0444'
   with_items:
       - "001-rutorrent.conf"
+  become: yes
+  notify: restart apache2
+
+- name: Copy sites config
+  render:
+    src: "templates/etc/apache2/{{item}}.j2"
+    dest: "/etc/apache2/{{item}}"
+    owner: "root"
+    group: "root"
+    mode: '0644'
+  with_items:
+      - ".htpasswd"
   become: yes
   notify: restart apache2
 

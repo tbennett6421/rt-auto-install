@@ -5,4 +5,3 @@
 
 - name: "Configure apache2"
   include: configure-apache2.yml
-

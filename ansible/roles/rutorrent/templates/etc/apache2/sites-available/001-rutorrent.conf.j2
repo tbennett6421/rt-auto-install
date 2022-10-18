@@ -17,7 +17,7 @@
         AuthType Basic
         Require valid-user
         AuthName "Tits or GTFO"
-        AuthUserFile <% rutorrent_install_dir %>/.htpasswd
+        AuthUserFile /etc/apache2/.htpasswd
     </Directory>
 </VirtualHost>
 
@@ -34,7 +34,7 @@
       AuthName "Tits or GTFO"
       AuthType Basic
       Require valid-user
-      AuthUserFile <%rutorrent_install_dir%>/.htpasswd
+      AuthUserFile /etc/apache2/.htpasswd
   </Directory>
 
 SSLEngine on
