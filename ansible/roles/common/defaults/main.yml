@@ -20,5 +20,16 @@ config:
         portbegin: 6790
         portend: 6999
     rutorrent:
-        install_dir: "/var/www/rutorrent"
+        install_dir: /var/www/rutorrent
+        server_name: rutorrent.example.com
+        server_admin: webmaster@localhost
+    apache2:
+        server_name: rutorrent.example.com
+    htpasswd:
+        # widelyinsecure:widelyinsecure
+        username: widelyinsecure
+        crypt: $apr1$OHg.Rpvw$J2m7kwwWCTn/m//45BXKV0
+pki:
+    private_key: /etc/ssl/private/apache-selfsigned.key
+    public_key: /etc/ssl/certs/apache-selfsigned.crt
 

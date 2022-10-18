@@ -1,0 +1,33 @@
+---
+
+## Enable Modules
+- name: enable mod scgi
+  command:
+    cmd: a2enmod scgi
+  become: yes
+  notify: restart apache2
+
+- name: enable mod proxy
+  command:
+    cmd: a2enmod proxy
+  become: yes
+  notify: restart apache2
+
+- name: enable mod proxy_scgi
+  command:
+    cmd: a2enmod proxy_scgi
+  become: yes
+  notify: restart apache2
+
+## Enable Sites
+- name: disable default site
+  command:
+    cmd: a2dissite 000-default.conf
+  become: yes
+  notify: restart apache2
+
+- name: enable rutorrent
+  command:
+    cmd: a2ensite 001-rutorrent.conf
+  become: yes
+  notify: restart apache2
