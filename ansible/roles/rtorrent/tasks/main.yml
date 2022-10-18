@@ -17,3 +17,6 @@
 
 - name: "Configure rtorrent.rc"
   include: configure-rtorrent-rc.yml
+
+- name: "Ensure service is running"
+  include: post-install.yml

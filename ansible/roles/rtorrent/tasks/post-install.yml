@@ -1,0 +1,9 @@
+---
+
+- name: Ensure enabled and running
+  systemd:
+    name: rtorrent
+    state: started
+    enabled: yes
+    daemon_reload: yes
+  become: yes
